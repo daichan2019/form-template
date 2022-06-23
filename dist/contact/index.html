@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja">
+  <head><meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="email=no,telephone=no,address=no" />
+<title>お問い合わせ | お問い合わせフォームテンプレート</title>
+<meta name="description" content="お問い合わせページです。" />
+
+<meta property="og:title" content="お問い合わせフォームテンプレート" />
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta property="og:image" content="https://example.com/ogp.jpg" />
+<meta property="og:url" content="" />
+<meta property="og:description" content="サイトの概要" />
+<meta property="og:site_name" content="サイト名" />
+<meta property="og:locale" content="ja" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+
+<script src="../assets/js/bundle.js" defer></script>
+
+<script>
+  function getPolyfill(src, integrity) {
+    var script = document.createElement("script");
+    script.src = src;
+    script.integrity = integrity;
+    script.crossOrigin = "anonymous";
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+</script>
+<script>
+  if (!("inert" in document.documentElement)) {
+    getPolyfill(
+      "https://cdn.jsdelivr.net/npm/wicg-inert@3.1.0/dist/inert.min.js",
+      "sha384-RkY5SwIRNwK/U6yj2dNeFxYJEA1FjwffakxeSJvsggmMidmbsCrH4PJ/799+3qMb"
+    );
+  }
+</script>
+<script>
+  try {
+    document.querySelector(":focus-visible");
+  } catch (e) {
+    getPolyfill(
+      "https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js",
+      "sha384-xRa5B8rCDfdg0npZcxAh+RXswrbFk3g6dlHVeABeluN8EIwdyljz/LqJgc2R3KNA"
+    );
+  }
+</script>
+<script>
+  if (!window.HTMLPictureElement) {
+    getPolyfill(
+      "https://cdn.jsdelivr.net/npm/picturefill@3.0.3/dist/picturefill.min.js",
+      "sha384-xRa5B8rCDfdg0npZcxAh+RXswrbFk3g6dlHVeABeluN8EIwdyljz/LqJgc2R3KNA"
+    );
+  }
+</script>
+<script>
+  if (!("objectFit" in document.documentElement.style)) {
+    getPolyfill(
+      "https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js",
+      "sha384-GOTasnp7a/eSjnwcNDne3AqLTCR1Ax6dwWrZsPhBvSGDwp6XkOyJ2dTvSM2IGOnE"
+    );
+  }
+</script>
+<script>
+  if (!("scrollBehavior" in document.documentElement.style)) {
+    getPolyfill(
+      "https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js",
+      "sha384-EYn4rWu1DHvYD0sSSSbMEtXQmMl58CFJd897806+RT1jJVYbhuZlZMN6yG9nCyFa"
+    );
+  }
+</script>
+<script>
+  document.documentElement.classList.remove("no-js");
+</script>
+
+  </head>
+  <body>
+    <div class="l-page">
+      <header class="l-header"><div class="p-header"></div>
+</header>
+      <main role="main" class="l-main" data-page="contact">
+        <form id="contact-form" class="p-form">
+  <h1 class="p-form__headline">お問い合わせフォーム</h1>
+  <div class="p-form__description">
+    <p class="p-form__description-text">
+      お問い合わせ内容をご入力の上、確認画面へお進みください。
+    </p>
+    <p class="p-form__description-text">
+      お問い合わせ内容を確認後、担当者よりご連絡いたします。
+    </p>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="name" class="p-form__group-label">
+        お名前<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="name"
+          class="c-text-input__body"
+          type="text"
+          name="name"
+          required
+          aria-required="true"
+          placeholder="山田 太郎"
+          autocomplete="name"
+          pattern=".*\S+.*"
+          title="お名前を正しく入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="name"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="email" class="p-form__group-label">
+        メールアドレス<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="email"
+          class="c-text-input__body"
+          type="email"
+          name="email"
+          required
+          aria-required="true"
+          placeholder="example@example.com"
+          autocomplete="email"
+          title="メールアドレスは正しい形式で入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="email"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="tel" class="p-form__group-label"> 電話番号 </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="tel"
+          class="c-text-input__body"
+          type="tel"
+          name="tel"
+          placeholder="00000000000"
+          autocomplete="tel"
+          pattern="\d{2,4}-?\d{2,4}-?\d{3,4}"
+          title="電話番号は正しい形式で入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="tel"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="type" class="p-form__group-label">
+        お問い合わせ種別<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <ul class="p-form__group-list">
+        
+        
+        <li class="p-form__group-list-item">
+          <label class="c-radio">
+            <input
+              class="c-radio__input"
+              type="radio"
+              name="type"
+              value="事業内容について"
+              required
+              aria-required="true"
+              title="お問い合わせ種別は必ず選択してください。"
+            />
+            <span class="c-radio__icon"></span>
+            <span class="c-radio__text">事業内容について</span>
+          </label>
+        </li>
+        
+        <li class="p-form__group-list-item">
+          <label class="c-radio">
+            <input
+              class="c-radio__input"
+              type="radio"
+              name="type"
+              value="採用について"
+              required
+              aria-required="true"
+              title="お問い合わせ種別は必ず選択してください。"
+            />
+            <span class="c-radio__icon"></span>
+            <span class="c-radio__text">採用について</span>
+          </label>
+        </li>
+        
+        <li class="p-form__group-list-item">
+          <label class="c-radio">
+            <input
+              class="c-radio__input"
+              type="radio"
+              name="type"
+              value="その他"
+              required
+              aria-required="true"
+              title="お問い合わせ種別は必ず選択してください。"
+            />
+            <span class="c-radio__icon"></span>
+            <span class="c-radio__text">その他</span>
+          </label>
+        </li>
+        </ul>
+      <p
+        class="p-form__validation"
+        data-validation="type"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="message" class="p-form__group-label">
+        お問い合わせ内容<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-textarea">
+        <textarea
+          id="message"
+          class="c-textarea__body"
+          name="message"
+          placeholder="お問い合わせ内容をご入力下さい。"
+          required
+          aria-required="true"
+          title="お問い合わせ内容は必ずご入力ください。"
+        ></textarea>
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="message"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__confirm">
+    <label for="agree" class="c-checkbox">
+      <input
+        id="agree"
+        name="agree"
+        class="c-checkbox__input"
+        type="checkbox"
+      />
+      <span class="c-checkbox__icon"></span>
+      <span class="c-checkbox__text">
+        <a href="../privacy-policy" class="p-form__confirm-link">
+          プライバシーポリシー
+        </a>に同意の上、「確認する」ボタンからお進みください。
+      </span>
+    </label>
+  </div>
+  <div class="p-form__button-wrap">
+    <button
+      class="c-button p-form__confirm-button js-confirm-button"
+      type="button"
+    >
+      確認する
+    </button>
+  </div>
+</form>
+      </main>
+      <footer class="l-footer"><div class="p-footer"></div>
+</footer>
+    </div>
+  </body>
+</html>

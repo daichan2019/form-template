@@ -1,0 +1,475 @@
+@use "../../global" as *;
+
+$color-black: #121212 !default;
+$color-white: #fff !default;
+$color-orange: #ff7a4f !default;
+$color-silver: #e8e8e6 !default;
+$color-blue: #004b63 !default;
+$color-turquoise: #30b8b2 !default;
+$color-grey: #eee !default;
+
+$breakpoints: (
+  "xs": (
+    min-width: 0,
+  ),
+  "sm": (
+    min-width: 576px,
+  ),
+  "md": (
+    min-width: 768px,
+  ),
+  "lg": (
+    min-width: 992px,
+  ),
+  "xl": (
+    min-width: 1200px,
+  ),
+  "xxl": (
+    min-width: 1400px,
+  ),
+) !default;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}";
+  }
+}
+
+body {
+  color: $color-black;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.6;
+}
+
+.p-form {
+  margin: 0 10px;
+
+  @include responsive(md) {
+    margin: 0 auto;
+    max-width: 720px;
+  }
+}
+
+.p-form__headline {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.p-form__description {
+  margin-top: 20px;
+}
+
+.p-form__group {
+  margin-top: 40px;
+}
+
+.p-form__group-header {
+  align-items: center;
+  display: flex;
+}
+
+.p-form__required {
+  background-color: $color-blue;
+  border-radius: 4px;
+  color: $color-silver;
+  margin-left: 8px;
+  padding: 4px 8px;
+}
+
+.p-form__group-content {
+  margin-top: 10px;
+
+  &.-confirm {
+    color: $color-orange;
+  }
+}
+
+.p-form__validation {
+  &:empty {
+    display: none;
+  }
+
+  color: $color-orange;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.p-form__group-list-item {
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.p-form__confirm {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.p-form__confirm-label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: 12px 8px;
+}
+
+.p-form__confirm-text {
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.p-form__confirm-link {
+  color: $color-turquoise;
+  text-decoration: underline;
+}
+
+.p-form__button-wrap {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+
+  @include responsive(sm) {
+    flex-direction: row;
+  }
+}
+
+.p-form__confirm-button {
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  background-color: $color-blue;
+  border-color: $color-blue;
+  color: $color-white;
+  height: 50px;
+  margin: 0 auto;
+  width: 282px;
+
+  &[aria-disabled="false"]:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+}
+
+.p-form__fix-button {
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  background-color: $color-blue;
+  border-color: $color-blue;
+  color: $color-white;
+  height: 50px;
+  width: 282px;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+}
+
+.p-form__submit-button {
+  background-color: $color-orange;
+  border-color: $color-orange;
+  color: $color-white;
+  height: 50px;
+  width: 282px;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-orange;
+  }
+}
+
+.p-form__top-button {
+  background-color: $color-turquoise;
+  border-color: $color-turquoise;
+  color: $color-white;
+  height: 50px;
+  margin: 0 auto;
+  width: 282px;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-turquoise;
+  }
+}
+
+.p-form__thanks {
+  margin-top: 60px;
+}
+
+.p-form__thanks-message {
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+/**
+* @todo component化する
+**/
+.c-text-input__body {
+  border: 1px solid $color-grey;
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 10px;
+  width: 100%;
+
+  &:focus {
+    border-color: $color-turquoise;
+    box-shadow: inset 0 0 0 1px $color-turquoise;
+    outline: none;
+  }
+}
+
+/**
+* @todo component化する
+**/
+.c-radio {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.c-radio__input {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.c-radio__icon {
+  border: 1px solid $color-grey;
+  border-radius: 50%;
+  display: inline-block;
+  height: 1.5em;
+  position: relative;
+  transition: border-color 0.5s;
+  width: 1.5em;
+
+  &::before,
+  &::after {
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    height: 0.75em;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.75em;
+  }
+
+  &::before {
+    background-color: $color-grey;
+    transition: background-color 0.5s, opacity 0.5s;
+  }
+
+  .c-radio__input:checked + & {
+    border-color: $color-turquoise;
+  }
+
+  .c-radio__input:checked + &::before {
+    background-color: $color-turquoise;
+    opacity: 1;
+  }
+
+  .c-radio__input:checked + &::after {
+    animation: radio-ripple 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    background-color: $color-turquoise;
+    pointer-events: none;
+  }
+}
+
+.c-radio__text {
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s;
+
+  &::after {
+    background-color: $color-turquoise;
+    border-radius: 1px;
+    bottom: -2px;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scale3d(0, 1, 1);
+    transform-origin: right;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+
+  .c-radio:hover & {
+    color: $color-turquoise;
+
+    &::after {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+  }
+
+  .c-radio__icon + & {
+    margin-left: 8px;
+  }
+
+  .c-radio__input:checked ~ & {
+    color: $color-turquoise;
+  }
+
+  .c-radio__input:focus ~ & {
+    color: $color-turquoise;
+
+    &::after {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+  }
+}
+
+@keyframes radio-ripple {
+  0% {
+    opacity: 0.8;
+    transform: scale3d(1, 1, 1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(4, 4, 1);
+  }
+}
+
+/**
+* @todo component化する
+**/
+.c-textarea__body {
+  border: 1px solid $color-grey;
+  border-radius: 4px;
+  height: 420px;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+
+  &:focus {
+    border-color: $color-turquoise;
+    box-shadow: inset 0 0 0 1px $color-turquoise;
+    outline: none;
+  }
+}
+
+/**
+* @todo component化する
+**/
+.c-checkbox {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.c-checkbox__input {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.c-checkbox__icon {
+  display: inline-block;
+  height: 1.5em;
+  position: relative;
+  width: 1.5em;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    border: 2px solid $color-grey;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: border-color 0.5s, opacity 0.5s,
+      transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
+  }
+
+  &::after {
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    height: 0.5em;
+    left: 0.25em;
+    opacity: 0;
+    top: 0.375em;
+    transform: rotate(-225deg);
+    transition: opacity 0.5s, transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 1em;
+  }
+
+  .c-checkbox__input:checked + &::before {
+    border-color: $color-turquoise;
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(45deg) scale3d(2, 2, 1);
+  }
+
+  .c-checkbox__input:checked + &::after {
+    border-bottom: 2px solid $color-turquoise;
+    border-left: 2px solid $color-turquoise;
+    opacity: 1;
+    transform: rotate(-45deg);
+  }
+
+  .c-checkbox__input:focus + &::before {
+    border-color: $color-turquoise;
+  }
+}
+
+.c-checkbox__text {
+  margin-left: 10px;
+}
+
+/**
+* @todo component化する
+**/
+.c-button {
+  align-items: center;
+  border: 1px solid;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

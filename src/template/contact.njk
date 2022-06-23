@@ -1,0 +1,188 @@
+---
+title: お問い合わせ
+description: お問い合わせページです。
+root: ".."
+slug: "contact"
+---
+
+{% extends 'layout/_base.njk' %}
+{% block main -%}
+<form id="contact-form" class="p-form">
+  <h1 class="p-form__headline">お問い合わせフォーム</h1>
+  <div class="p-form__description">
+    <p class="p-form__description-text">
+      お問い合わせ内容をご入力の上、確認画面へお進みください。
+    </p>
+    <p class="p-form__description-text">
+      お問い合わせ内容を確認後、担当者よりご連絡いたします。
+    </p>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="name" class="p-form__group-label">
+        お名前<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="name"
+          class="c-text-input__body"
+          type="text"
+          name="name"
+          required
+          aria-required="true"
+          placeholder="山田 太郎"
+          autocomplete="name"
+          pattern=".*\S+.*"
+          title="お名前を正しく入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="name"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="email" class="p-form__group-label">
+        メールアドレス<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="email"
+          class="c-text-input__body"
+          type="email"
+          name="email"
+          required
+          aria-required="true"
+          placeholder="example@example.com"
+          autocomplete="email"
+          title="メールアドレスは正しい形式で入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="email"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="tel" class="p-form__group-label"> 電話番号 </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-text-input">
+        <input
+          id="tel"
+          class="c-text-input__body"
+          type="tel"
+          name="tel"
+          placeholder="00000000000"
+          autocomplete="tel"
+          pattern="\d{2,4}-?\d{2,4}-?\d{3,4}"
+          title="電話番号は正しい形式で入力してください。"
+        />
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="tel"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="type" class="p-form__group-label">
+        お問い合わせ種別<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <ul class="p-form__group-list">
+        {% set contactTypes = ["事業内容について", "採用について", "その他"] %}
+        {% for value in contactTypes %}
+        <li class="p-form__group-list-item">
+          <label class="c-radio">
+            <input
+              class="c-radio__input"
+              type="radio"
+              name="type"
+              value="{{ value }}"
+              required
+              aria-required="true"
+              title="お問い合わせ種別は必ず選択してください。"
+            />
+            <span class="c-radio__icon"></span>
+            <span class="c-radio__text">{{ value }}</span>
+          </label>
+        </li>
+        {% endfor -%}
+      </ul>
+      <p
+        class="p-form__validation"
+        data-validation="type"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__group">
+    <p class="p-form__group-header">
+      <label for="message" class="p-form__group-label">
+        お問い合わせ内容<span class="p-form__required">必須</span>
+      </label>
+    </p>
+    <div class="p-form__group-content">
+      <p class="c-textarea">
+        <textarea
+          id="message"
+          class="c-textarea__body"
+          name="message"
+          placeholder="お問い合わせ内容をご入力下さい。"
+          required
+          aria-required="true"
+          title="お問い合わせ内容は必ずご入力ください。"
+        ></textarea>
+      </p>
+      <p
+        class="p-form__validation"
+        data-validation="message"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+    </div>
+  </div>
+  <div class="p-form__confirm">
+    <label for="agree" class="c-checkbox">
+      <input
+        id="agree"
+        name="agree"
+        class="c-checkbox__input"
+        type="checkbox"
+      />
+      <span class="c-checkbox__icon"></span>
+      <span class="c-checkbox__text">
+        <a href="{{ root }}/privacy-policy" class="p-form__confirm-link">
+          プライバシーポリシー
+        </a>に同意の上、「確認する」ボタンからお進みください。
+      </span>
+    </label>
+  </div>
+  <div class="p-form__button-wrap">
+    <button
+      class="c-button p-form__confirm-button js-confirm-button"
+      type="button"
+    >
+      確認する
+    </button>
+  </div>
+</form>
+{%- endblock %}

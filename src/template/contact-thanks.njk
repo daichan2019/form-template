@@ -1,0 +1,29 @@
+---
+title: お問い合わせ完了
+description: お問い合わせ完了ページです。
+root: ".."
+slug: "contact-thanks"
+---
+
+{# {% set page = "contact" %} #}
+{% extends 'layout/_base.njk' %}
+{% block main -%}
+<form id="contact-form" class="p-form">
+  <h1 class="p-form__headline">お問い合わせフォーム</h1>
+  <div class="p-form__thanks">
+    <p class="p-form__thanks-message">
+      お問い合わせ内容を送付いたしました。<br />
+      担当者よりご返信いたしますので、お待ちください。
+    </p>
+    <p class="p-form__thanks-message">
+      5秒後に自動でトップページに戻ります。
+    </p>
+    <p class="p-form__thanks-message">
+      戻らない場合お手数ですが、以下のボタンをクリックしてください。
+    </p>
+  </div>
+  <div class="p-form__button-wrap">
+  <a class="c-button p-form__top-button" href="{{root}}">トップへ戻る</a>
+  </div>
+</form>
+{%- endblock %}
